@@ -1,0 +1,7 @@
+<div *ngIf="pattern">
+  <h2>{{pattern.name | uppercase}}</h2>
+  <div>id: {{pattern.id}}</div>
+  <div>
+    <input [(ngModel)]="pattern.name" placeholder="No name" />
+  </div>
+</div>
