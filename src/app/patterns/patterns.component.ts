@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PATTERNS } from '../mock-patterns';
+import { PatternService } from '../pattern.service';
 import { Pattern } from '../pattern';
 import { PatternDetailComponent } from '../pattern-detail/pattern-detail.component';
 
@@ -10,16 +10,15 @@ const newLocal = "Strategy";
   styleUrls: ['./patterns.component.css']
 })
 export class PatternsComponent implements OnInit {
-  patterns = PATTERNS;
-  pattern:  Pattern = {
-    id: 1,
-    name: 'Strategy'
-  };
+  patterns: Pattern[];
   selectedPattern: Pattern;
   
-  constructor() { }
+  constructor(private patternService : PatternService) { 
+  }
 
   ngOnInit() {
+    this.patternService.getPatterns()
+      .subscribe(patterns => this.patterns = patterns);
   }
 
   onClick(pattern: Pattern): void {
