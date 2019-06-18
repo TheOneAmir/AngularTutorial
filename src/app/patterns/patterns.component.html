@@ -1,11 +1,10 @@
 <h2 *ngIf="selectedPattern">{{selectedPattern.name}}</h2>
 <div>
   <ul>
-    <li *ngFor="let pattern of patterns" 
-    [class.selected]="pattern === selectedPattern"
-    (click)="onClick(pattern)">
-      <span>{{pattern.id}}</span> {{pattern.name}}
+    <li *ngFor="let pattern of patterns">
+      <a routerLink="/detail/{{pattern.id}}">
+        <span>{{pattern.id}}</span> {{pattern.name}}
+      </a>
     </li>
   </ul>
 </div>
-<app-pattern-detail [pattern]="selectedPattern"></app-pattern-detail>

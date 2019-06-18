@@ -13,5 +13,10 @@ export class PatternService {
     return of(PATTERNS);
   }
 
+  getPattern(id: number): Observable<Pattern> {
+    this.messageService.add('PatternService: Fetched details for pattern ${id}');
+    return of(PATTERNS.find(pattern => pattern.id === id));
+  }
+
   constructor(private messageService: MessageService) { }
 }

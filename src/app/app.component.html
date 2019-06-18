@@ -3,7 +3,12 @@
   <h1>
      {{ title }}
   </h1>
-  <app-patterns></app-patterns>
+  <nav>
+    <a routerLink="/patterns">Patterns</a>
+    <br>
+    <a routerLink="/dashboard">Dashboard</a>
+  </nav>
+  <router-outlet></router-outlet>
   <app-messages></app-messages>
 </div>
 
